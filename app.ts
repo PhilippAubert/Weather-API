@@ -12,14 +12,15 @@ const apiKey = process.env["API_KEY"]
 
 app.use(express.json());
 
-app.get("/", async (_req, res) => {
-
+app.get("/", async (req, res) => {
+    const {query} = req;
     try {
-        const {data} = await axios.get(`${baseUrl}/Munich?unitGroup=metric&key=${apiKey}&contentType=json`);
+        const {data} = await axios.get(`${baseUrl}/${query["address"]}?unitGroup=metric&key=${apiKey}`);
+
         return res.status(200).json(data);
     } catch(e) {
-        return res.status(400).json({"error": e});
+        return res.status(400).json({"error": "city is unknown"});
     }
 });
 
-app.listen(port, ()=>console.log(`Listening on port http://localhost:${port}`));
+app.listen(port, ()=> console.log(`Listening on port http://localhost:${port}`));
