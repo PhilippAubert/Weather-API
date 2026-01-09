@@ -1,0 +1,88 @@
+{
+    "queryCost": 1,
+    "latitude": 48.1375,
+    "longitude": 11.575,
+    "resolvedAddress": "Munich",
+    "address": "Munich",
+    "timezone": "Europe/Berlin",
+    "tzoffset": 1,
+    "days": [
+      {
+        "datetime": "2026-01-09",
+        "datetimeEpoch": 1767913200,
+        "tempmax": 42.7,
+        "tempmin": 33,
+        "temp": 38.1,
+        "feelslikemax": 34.9,
+        "feelslikemin": 26.8,
+        "feelslike": 30.3,
+        "dew": 32.4,
+        "humidity": 80.6,
+        "precip": 0.267,
+        "precipprob": 100,
+        "precipcover": 33.33,
+        "preciptype": [
+          "rain",
+          "snow"
+        ],
+        "snow": 0.1,
+        "snowdepth": 1.5,
+        "windgust": 39.1,
+        "windspeed": 24.1,
+        "winddir": 230.4,
+        "pressure": 998.2,
+        "cloudcover": 56.3,
+        "visibility": 7.6,
+        "solarradiation": 35.2,
+        "solarenergy": 3.1,
+        "uvindex": 2,
+        "severerisk": 10,
+        "sunrise": "08:02:35",
+        "sunriseEpoch": 1767942155,
+        "sunset": "16:39:27",
+        "sunsetEpoch": 1767973167,
+        "moonphase": 0.7,
+        "conditions": "Snow, Rain, Partially cloudy",
+        "description": "Partly cloudy throughout the day with a chance of rain or snow throughout the day.",
+        "icon": "snow",
+        "stations": [
+          "D1024",
+          "EDMO",
+          "EDDM"
+        ],
+        "source": "comb"
+      }
+    ],
+    "stations": {
+      "D1024": {
+        "distance": 7147,
+        "latitude": 48.086,
+        "longitude": 11.632,
+        "useCount": 0,
+        "id": "D1024",
+        "name": "DW1024 Neubiberg DE",
+        "quality": 0,
+        "contribution": 0
+      },
+      "EDDM": {
+        "distance": 29824,
+        "latitude": 48.35,
+        "longitude": 11.82,
+        "useCount": 0,
+        "id": "EDDM",
+        "name": "EDDM",
+        "quality": 50,
+        "contribution": 0
+      },
+      "EDMO": {
+        "distance": 22843,
+        "latitude": 48.08,
+        "longitude": 11.28,
+        "useCount": 0,
+        "id": "EDMO",
+        "name": "EDMO",
+        "quality": 49,
+        "contribution": 0
+      }
+    }
+}
