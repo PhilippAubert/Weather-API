@@ -1,26 +1,25 @@
 import express from "express";
 import dotenv from "dotenv";
 import axios from "axios";
+import { cacheMiddleware } from "./cache.js";
+import { redisClient } from "./client.js";
 
 dotenv.config();
 
 const app = express();
-
 const port = process.env["PORT"] || 4400;
-const baseUrl = process.env["BASE_URL"];
-const apiKey = process.env["API_KEY"]
 
-app.use(express.json());
+app.use("/", cacheMiddleware);
 
-app.get("/", async (req, res) => {
-    const {query} = req;
+app.get("/", async (_req, res) => {
+    const address = res.locals["cacheKey"] as string;
     try {
-        const {data} = await axios.get(`${baseUrl}/${query["address"]}?unitGroup=metric&key=${apiKey}`);
-
+        const { data } = await axios.get(`${process.env["BASE_URL"]}/${address}?unitGroup=metric&key=${process.env["API_KEY"]}`);
+        await redisClient.setEx(address, 3600, JSON.stringify(data));
         return res.status(200).json(data);
-    } catch(e) {
-        return res.status(400).json({"error": "city is unknown"});
+    } catch {
+        return res.status(400).json({ error: "City is unknown" });
     }
 });
 
-app.listen(port, ()=> console.log(`Listening on port http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
