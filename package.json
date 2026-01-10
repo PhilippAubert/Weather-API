@@ -4,7 +4,8 @@
   "description": "A weather api based on: https://roadmap.sh/projects/weather-api-wrapper-service",
   "main": "dist/app.js",
   "scripts": {
-    "start": "node app.js",
+    "build": "tsc",
+    "start": "node dist/app.js",
     "dev": "tsc-watch --project . --outDir ./dist --onSuccess \"nodemon ./dist/bin/www.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
